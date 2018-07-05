@@ -1384,7 +1384,11 @@ config("default_warnings") {
 
         # Ignore warnings about MSVC optimization pragmas.
         # TODO(thakis): Only for no_chromium_code? http://crbug.com/505314
-        "-Wno-ignored-pragma-optimize",
+        # "-Wno-ignored-pragma-optimize",
+
+        # treat "size_t value; return value <= kMaxUInt32;" as errors in 32bit build
+        # it's badly
+        "-Wno-tautological-constant-compare",
       ]
     } else if (use_xcode_clang) {
       cflags += [
