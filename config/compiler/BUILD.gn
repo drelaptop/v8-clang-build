@@ -399,7 +399,8 @@ config("compiler") {
   }
 
   if (is_posix && use_lld && !is_nacl) {
-    ldflags += [ "-fuse-ld=lld" ]
+    # clang++: error: invalid linker name in argument '-fuse-ld=lld
+    # ldflags += [ "-fuse-ld=lld" ]
     if (current_cpu == "arm64") {
       # Reduce the page size from 65536 in order to reduce binary size slightly
       # by shrinking the alignment gap between segments. This also causes all

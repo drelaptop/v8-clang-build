@@ -343,7 +343,9 @@ template("gcc_toolchain") {
         # We use slightly different arflags for AIX.
         extra_arflags = "-r -c -s"
       } else {
-        extra_arflags = "-r -c -s -D"
+        # its useless for collect v8 libs finally, for the generated libs will be deleted in build-android.sh
+        # -r -c -s -D is wrong for llvm-ar
+        extra_arflags = "rcs"
       }
 
       # Almost all targets build with //build/config/compiler:thin_archive which
