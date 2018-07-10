@@ -1378,10 +1378,10 @@ config("default_warnings") {
         "-Wno-user-defined-warnings",
 
         # TODO(thakis): https://crbug.com/753973
-        "-Wno-enum-compare-switch",
+        # "-Wno-enum-compare-switch",
 
         # TODO(hans): https://crbug.com/766891
-        "-Wno-null-pointer-arithmetic",
+        # "-Wno-null-pointer-arithmetic",
 
         # Ignore warnings about MSVC optimization pragmas.
         # TODO(thakis): Only for no_chromium_code? http://crbug.com/505314
@@ -1389,7 +1389,7 @@ config("default_warnings") {
 
         # treat "size_t value; return value <= kMaxUInt32;" as errors in 32bit build
         # it's badly
-        "-Wno-tautological-constant-compare",
+        # "-Wno-tautological-constant-compare",
       ]
     } else if (use_xcode_clang) {
       cflags += [
