@@ -62,10 +62,10 @@ def main():
     return result
 
   # Finally, strip the linked executable (if desired).
-  if args.strip:
-    result = subprocess.call(CommandToRun([
-        args.strip, '-o', args.output, args.unstripped_file
-        ]))
+  # if args.strip:
+  #   result = subprocess.call(CommandToRun([
+  #       args.strip, '-o', args.output, args.unstripped_file
+  #       ]))
 
   return result
 
