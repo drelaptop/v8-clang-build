@@ -113,6 +113,15 @@ config("runtime_library") {
             root_build_dir)
   }
   cflags_cc += [
+    "-isystem" +
+        rebase_path("$android_ndk_root/sysroot/usr/include",
+                    root_build_dir),
+        #only for arm32 
+    "-isystem" +
+        rebase_path("$android_ndk_root/sysroot/usr/include/arm-linux-androideabi",
+                    root_build_dir),
+  ]
+  cflags_cc += [
     "-isystem" + libcxx_include_path,
     "-isystem" + libcxxabi_include_path,
     "-isystem" +
