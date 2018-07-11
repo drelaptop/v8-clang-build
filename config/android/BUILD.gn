@@ -113,6 +113,14 @@ config("runtime_library") {
             root_build_dir)
   }
   cflags_cc += [
+    "-isystem" + libcxx_include_path,
+    "-isystem" + libcxxabi_include_path,
+    "-isystem" +
+        rebase_path("$android_ndk_root/sources/android/support/include",
+                    root_build_dir),
+  ]
+
+  cflags_cc += [
     "-isystem" +
         rebase_path("$android_ndk_root/sysroot/usr/include",
                     root_build_dir),
@@ -121,14 +129,7 @@ config("runtime_library") {
         rebase_path("$android_ndk_root/sysroot/usr/include/arm-linux-androideabi",
                     root_build_dir),
   ]
-  cflags_cc += [
-    "-isystem" + libcxx_include_path,
-    "-isystem" + libcxxabi_include_path,
-    "-isystem" +
-        rebase_path("$android_ndk_root/sources/android/support/include",
-                    root_build_dir),
-  ]
-
+  
   defines = [ "__GNU_SOURCE=1" ]  # Necessary for clone().
   ldflags = [ "-nostdlib" ]
   lib_dirs = [ android_libcpp_lib_dir ]
