@@ -130,10 +130,10 @@ config("runtime_library") {
                     root_build_dir),
         #only for arm32 
     "-isystem" +
-        rebase_path("$android_ndk_root/sysroot/usr/include/arm-linux-androideabi",
+        rebase_path("$android_ndk_root/sysroot/usr/include/$abi_target",
                     root_build_dir),
   ]
-  
+
   defines = [ "__GNU_SOURCE=1" ]  # Necessary for clone().
   ldflags = [ "-nostdlib" ]
   lib_dirs = [ android_libcpp_lib_dir ]
