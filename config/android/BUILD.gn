@@ -128,11 +128,13 @@ config("runtime_library") {
   if (current_cpu == "arm") {
       abi_target = "arm-linux-androideabi"
     } else if (current_cpu == "x86") {
-      abi_target = "i686-linux-androideabi"
+      # no "eabi" in ndk-r16
+      abi_target = "i686-linux-android"
     } else if (current_cpu == "arm64") {
+      # no "eabi" in ndk-r16
       abi_target = "aarch64-linux-android"
     } else if (current_cpu == "x64") {
-      abi_target = "x86_64-linux-androideabi"
+      abi_target = "x86_64-linux-android"
   }
 
   cflags_cc += [
