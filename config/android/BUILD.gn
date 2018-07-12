@@ -120,6 +120,7 @@ config("runtime_library") {
                     root_build_dir),
   ]
 
+  # Unified Headers !! refer to: https://android.googlesource.com/platform/ndk/+/ndk-r15-release/docs/UnifiedHeaders.md
   cflags_cc += [
     "-isystem" +
         rebase_path("$android_ndk_root/sysroot/usr/include",
