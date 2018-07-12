@@ -289,8 +289,9 @@ config("compiler") {
       # faster links in unofficial builds.
       ldflags += [ "-Wl,--build-id=sha1" ]
     }
-
-    defines += [ "_FILE_OFFSET_BITS=64" ]
+    # tl;dr: Don't set _FILE_OFFSET_BITS=64 if you want to keep the behavior present in old NDKs.
+    # refer to: https://android-developers.googleblog.com/2017/09/introducing-android-native-development.html
+    # defines += [ "_FILE_OFFSET_BITS=64" ]
 
     if (!is_android) {
       defines += [
